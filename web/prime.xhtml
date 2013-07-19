@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      template="./template.xhtml">
+
+    <ui:define name="top">
+        <h1>Graficas  </h1> 
+    </ui:define>
+
+    <ui:define name="content">
+       
+        
+  <h:form prependId="false">  
+    <p:growl id="growl" showDetail="true" />  
+  
+    <p:pieChart id="pieChart" value="#{chartBean.pieModel}" legendPosition="w"  
+            title="Interactive Pie Chart" style="width:400px;height:300px">  
+        <p:ajax event="itemSelect" listener="#{chartBean.itemSelect}" update="growl" />  
+    </p:pieChart>  
+  
+  
+    <p:barChart id="basic" value="#{chartBean.categoryModel}" legendPosition="ne"  
+            title="Basic Bar Chart" min="0" max="200" style="height:300px"/>  
+  
+<p:barChart id="horizontal" value="#{chartBean.categoryModel}" legendPosition="se" style="height:300px"  
+            title="Horizontal Bar Chart" orientation="horizontal" min="0" max="200"/>  
+  
+
+    
+    
+   <p:lineChart id="category" value="#{chartBean.categoryModel}" legendPosition="e"  
+     title="Category Chart" minY="0" maxY="200" style="height:300px;margin-top:20px"/>  
+  
+
+    
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+</h:form>  
+        
+        
+        
+        
+        
+    </ui:define>
+       
+</ui:composition>
